@@ -14,6 +14,8 @@ def caching_fibonacci():
             return 0
         elif n == 1:
             return 1
+        elif n >= 1000:
+            return f"Your number {n} is more, then maximum recursion depth exceeded! Must be less, then 1000!"
         # Якщо наше число вже було обраховано та міститься у словнику кешу,
         # то число не вираховується, а повертається відповідне значення із словника
         elif n in cache.keys():
@@ -27,3 +29,4 @@ if __name__ == "__main__":
     fib = caching_fibonacci()
     print(fib(10))
     print(fib(15))
+    print(fib(1000))
