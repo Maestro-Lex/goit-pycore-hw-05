@@ -23,7 +23,7 @@ def generator_numbers_without_re(text: str):
     (в середньому в 2 рази швидше)
     '''
     for item in text.split(): 
-        #   
+        # Пробуємо кожен елемент рядку перетворити на дійсне число 
         try:
             yield float(item)
         except Exception:
