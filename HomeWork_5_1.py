@@ -6,7 +6,7 @@ def caching_fibonacci():
     # Створюємо словник, що міститиме вже обраховані при попередніх 
     # викликах функції fibonacci значення
     cache = {}
-    def fibonacci(n):
+    def fibonacci(n: int) -> int:
         '''
         Функція, яка безпосередньо обчислює число Фібоначчі
         '''
@@ -25,8 +25,8 @@ def caching_fibonacci():
         return cache[n]
     return fibonacci
 
+
 if __name__ == "__main__":
     fib = caching_fibonacci()
     print(fib(10))
     print(fib(15))
-    print(fib(1000))
