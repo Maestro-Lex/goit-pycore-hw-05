@@ -47,7 +47,7 @@ def add_contact(args: list, contacts: dict) -> str:
     Команда додання імені та номеру до списку контактів 
     '''
     name, phone = args
-    contacts[name.capitalize()] = phone
+    contacts[name.capitalize().strip(",")] = phone
     return f"{Fore.LIGHTGREEN_EX}Contact added.{Fore.RESET}"
 
 @input_error
@@ -56,8 +56,8 @@ def change_contact(args: list, contacts: dict) -> str:
     Команда зміни номеру телефону за ім'ям контакту, у разі його наявності 
     '''
     name, phone = args
-    if name.capitalize() in contacts.keys():
-        contacts[name.capitalize()] = phone
+    if name.capitalize().strip(",") in contacts.keys():
+        contacts[name.capitalize().strip(",")] = phone
         return f"{Fore.LIGHTGREEN_EX}Contact updated.{Fore.RESET}"
     else:
         raise KeyError
