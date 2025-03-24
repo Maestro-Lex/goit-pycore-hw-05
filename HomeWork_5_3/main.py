@@ -1,5 +1,4 @@
 import sys
-#from pathlib import Path
 from colorama import Fore, init
 # Імпортуємо нвчі функції з нашого модуля
 from hw_5_3_module import *
