@@ -34,18 +34,11 @@ def input_error(func):
         try:
             return func(*args, **kwargs)        
         except ValueError:
-            if (func.__name__ == "add_contact" 
-                or func.__name__ == "change_contact"):
-                return f"{Fore.LIGHTRED_EX}Give me name and phone please.{Fore.RESET}"            
+            return f"{Fore.LIGHTRED_EX}Give me name and phone please.{Fore.RESET}"            
         except KeyError:
-            if (func.__name__ == "change_contact" 
-                or func.__name__ == "show_phone" 
-                or func.__name__ == "remove_contact"):
-                return f"{Fore.LIGHTRED_EX}There is no such user!{Fore.RESET}"     
+            return f"{Fore.LIGHTRED_EX}There is no such user!{Fore.RESET}"     
         except IndexError:
-            if (func.__name__ == "show_phone" 
-                or func.__name__ == "remove_contact"):
-                return f"{Fore.LIGHTRED_EX}Enter user name.{Fore.RESET}"
+            return f"{Fore.LIGHTRED_EX}Enter user name.{Fore.RESET}"
     return inner
 
 @input_error
@@ -60,7 +53,7 @@ def add_contact(args: list, contacts: dict) -> str:
 @input_error
 def change_contact(args: list, contacts: dict) -> str:
     '''
-    Команда зсіни номеру телефону за ім'ям контакту, у разі його наявності 
+    Команда зміни номеру телефону за ім'ям контакту, у разі його наявності 
     '''
     name, phone = args
     if name.capitalize() in contacts.keys():
